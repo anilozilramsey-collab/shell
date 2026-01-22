@@ -8,4 +8,5 @@ if [$diskusage -gt $THRESHOLD]
    print'diskusage is low'
 else
    print'diskusage is high'
+   
 fi
