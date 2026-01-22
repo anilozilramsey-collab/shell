@@ -1,11 +1,11 @@
-#!/bash/bin
+#!/bin/bash
 THRESHOLD=90
 
-diskusage=$ (df -h | grep /dev/nvme0n1p3 | awk '{print $5}| cut %) 
+diskusage=$(df -h | grep /dev/nvme0n1p3 | awk '{print $5}' | cut -d'%' -f1)
 
-if [$diskusage -gt $THRESHOLD]
-   print'diskusage is low'
+if ["$diskusage -gt $THRESHOLD"]
+   echo"diskusage is low (${diskusage}%"
 else
-   print'diskusage is high'
+   print"diskusage is high (${diskusage}%"
 
 fi
